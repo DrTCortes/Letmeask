@@ -6,7 +6,7 @@ import { Button } from '../components/Button'
 
 import '../styles/auth.scss'
 
-export function Home(){
+export function NewRoom(){
     return(
         <div id="page-auth">
          <aside>
@@ -14,23 +14,21 @@ export function Home(){
              <strong>Toda pergunta tem uma resposta.</strong>
              <p>Aprenda e compartilhe conhecimento com outras pessoas</p>
          </aside>
-         <main>
+         <main> 
              <div className="main-content">
                 <img src={logoImg} alt="Letmeask" />
                 
-                <button className="create-room"> 
-                    <img src={googleIconImg} alt="" />
-                    Crie sua sala com o Google
-                </button>
+                <h2>Crie uma nova sala</h2>
                 
-                <div className="separator">ou entre em uma sala</div>
 
                 <form action="">
 
-                    <input placeholder="Digite o código da sala" type="text" />
+                    <input placeholder="Nome da sala" type="text" />
 
-                    <Button type="submit"> Entrar na sala</Button>
+                    <Button type="submit">Criar sala</Button>
+                    
                 </form>
+                    <p>Quer entrar em uma sala já existente? <a href="#">Clique aqui</a></p>
 
              </div>
          </main>
