@@ -16,11 +16,9 @@ export function Home(){
     const { user, signInWithGoogle } = useContext(AuthContext)
 
     function handleCreateRoom(){
-        console.log(user)
         if (!user){
             signInWithGoogle()
         }
-        // console.log(user)
             
         //history.push('/rooms/new')
     }

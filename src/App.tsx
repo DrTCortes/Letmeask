@@ -40,6 +40,7 @@ function App() {
           })
 
         }
+        console.log(result.user)
   }
 
   return (

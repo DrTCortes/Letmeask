@@ -7,7 +7,9 @@
 
 # testing
 /coverage
+/services/firebase
 /services
+firebase.ts
 
 # production
 /build
