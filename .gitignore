@@ -7,13 +7,13 @@
 
 # testing
 /coverage
+/services
 
 # production
 /build
 
 # misc
 .DS_Store
-firebase.ts
 .env.local
 .env.development.local
 .env.test.local
