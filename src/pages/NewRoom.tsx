@@ -6,7 +6,7 @@ import logoImg from '../assets/images/logo.svg'
 
 import { Button } from '../components/Button'
 
-import {AuthContext} from '../App'
+import {AuthContext} from '../context/AuthContext'
 
 import '../styles/auth.scss'
 
