@@ -10,7 +10,8 @@ import { Button } from '../components/Button'
 
 import {AuthContext} from '../context/AuthContext'
 
-import '../styles/auth.scss'
+import '../styles/auth.scss' 
+
 
 export function NewRoom(){
     const history = useHistory();
