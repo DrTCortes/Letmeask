@@ -17,7 +17,8 @@ export function MenuBar(){
         id: string;
     }
 
-    const {id} = useParams<RoomParams>();
+    const params = useParams<RoomParams>();
+    const roomId = params.id;
 
     return (
         <div className="menuBar">
@@ -25,7 +26,7 @@ export function MenuBar(){
             <img src={logoImg} alt="Letmeask"/>
 
             <div className="section">
-                <RoomCode code={id}/>
+                <RoomCode code={roomId}/>
                 <button onClick={navigateToHome} className="logOut">Encerrar sala</button>
             </div>
         </div>
