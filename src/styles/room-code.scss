@@ -1,0 +1,34 @@
+.room-code{
+    display: flex;
+    height: 40px;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 20px;
+    border: 1px solid #835AFD;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    .copybg{
+        display: flex;
+        align-items: center;
+        background: #835afd;
+        height: 100%;
+        border-radius: 8px;
+        
+        img{
+            background: #835afd;
+            margin: 0 10px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    span{
+        font: 500 12px 'Roboto', sans-serif;
+        margin: 0 20px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #835AFD;
+    }
+}

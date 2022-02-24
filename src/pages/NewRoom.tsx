@@ -24,13 +24,12 @@ export function NewRoom(){
         if (newRoom.trim() === ''){
             return
         }
-
         const roomRef = database.ref('rooms');
-
+        
         const firebaseRoom = await roomRef.push({
             title: newRoom,
             authorId: user?.id,
-
+            
         })
         history.push(`./rooms/${firebaseRoom.key}`)
     }

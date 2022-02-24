@@ -1,12 +1,29 @@
-import React from 'react'
-
 import {MenuBar} from '../components/MenuBar'
+import {Button} from '../components/Button'
+
+import '../styles/room.scss'
 
 export function Room(){
+
     return(
-        <div>
+        <div id="page-room">
+
             <MenuBar></MenuBar>
             
+            <main className='content'>
+                <div className='room-title'>
+                    <h1>Sala React</h1>
+                    <span>4 perguntas</span>
+                </div>
+
+                <form>
+                    <textarea placeholder='O que você quer perguntar?'></textarea>
+                    <div className="form-footer">
+                        <span>Para enviar uma pergunta, <button>faça seu login.</button></span>
+                        <Button type='submit'>Enviar pergunta</Button>
+                    </div>
+                </form>
+            </main>
         </div>
     )
 }
