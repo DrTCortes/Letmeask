@@ -1,15 +1,14 @@
 import {useState, useContext, FormEvent, useEffect} from 'react'
 import {AuthContext} from '../context/AuthContext'
-import {useParams} from 'react-router-dom'
+import {useHistory, useParams} from 'react-router-dom'
 import {database} from '../services/firebase'
-
-import {MenuBar} from '../components/MenuBar'
-import {Button} from '../components/Button'
-import { Question } from '../components/Question'
-
-import '../styles/room.scss'
 import { useRoom } from '../hooks/useRoom'
 
+import {MenuBar} from '../components/MenuBar'
+import { Question } from '../components/Question'
+
+import deleteImg from '../assets/images/delete.svg'
+import '../styles/room.scss'
 
 
 type RoomParams = {
@@ -19,10 +18,16 @@ type RoomParams = {
 export function AdminRoom(){
     const { user } = useContext(AuthContext)
     const params = useParams<RoomParams>();
-    
+    const history = useHistory();
     const roomId = params.id;
     
     const {title, questions} = useRoom(roomId)
+
+    async function handleDeleteQuestion(questionId: string){
+        if (window.confirm("Tem certeza que você deseja excluir esta pergunta?")){
+            const questionRef = await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
+        }
+    }
 
     return(
         <div id="page-room">
@@ -43,7 +48,15 @@ export function AdminRoom(){
                             key={question.id}
                             content={question.content}
                             author={question.author}
-                            />
+                            >
+                                <button
+                                    type='button'
+                                    onClick={()=> handleDeleteQuestion(question.id)}
+
+                                >
+                                    <img src={deleteImg} alt="Remover pergunta." />
+                                </button>
+                            </Question>
                         )
                     })}
                 </div>

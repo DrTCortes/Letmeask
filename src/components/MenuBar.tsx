@@ -5,25 +5,35 @@ import {RoomCode} from './roomCode'
 import '../styles/menuBar.scss'
 import logoImg from '../assets/images/logo.svg'
 import { Button } from './Button';
+import { database } from '../services/firebase';
 
 type MenuProps = {
     isOutlined?: boolean;
-    isAdmin?: boolean
+    isAdmin?: boolean;
+
 }
 
 export function MenuBar({isAdmin, isOutlined}: MenuProps){
     const history = useHistory();
+    const params = useParams<RoomParams>();
+    const roomId = params.id;
 
     function navigateToHome(){
         history.push('/')
+    }
+
+    async function handleRemoveRoom(){
+        await database.ref(`rooms/${roomId}`).update({
+            endedAt: new Date()
+        })
+
+        history.push("/")
     }
     
     type RoomParams = {
         id: string;
     }
 
-    const params = useParams<RoomParams>();
-    const roomId = params.id;
 
     return (
         <div className="menuBar">
@@ -32,7 +42,7 @@ export function MenuBar({isAdmin, isOutlined}: MenuProps){
 
             <div className="section">
                 <RoomCode code={roomId}/>
-                <Button onClick={navigateToHome} className="logOut">Encerrar sala</Button>
+                <Button onClick={isAdmin ? handleRemoveRoom : navigateToHome} className="logOut">Encerrar sala</Button>
             </div>
         </div>
     )
